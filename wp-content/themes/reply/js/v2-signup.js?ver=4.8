@@ -1,0 +1,65 @@
+$(function () {
+	var SNG_HEADER_ELEM = $('.navbar-default');
+	var SNG_HEADER_CLASS = 'fixed-header';
+	var SNG_LOGIN_BUTTON_ELEM = $('li.header-login-button');
+	var SNG_NAVBAR_ELEM = $('ul.nav.navbar-nav');
+	var SNG_BODY_ELEM = $('body');
+	
+	var sng_init = false;
+	
+	function addSignupToNavbar (elem) {
+		if (elem.hasClass(SNG_HEADER_CLASS))
+			return;
+		
+		elem.addClass(SNG_HEADER_CLASS);
+		
+		SNG_LOGIN_BUTTON_ELEM.hide();
+		
+		SNG_NAVBAR_ELEM.append('<li id="menu-subscribe-email"><input type="email" name="email" placeholder="Your Email" required></li>');
+		SNG_NAVBAR_ELEM.append('<li id="menu-subscribe-btn"><button type="submit" class="btn-signup">Try it free</button></li>');
+		
+		if (!$('#navbar-signup').length)
+		{
+			SNG_NAVBAR_ELEM.parent().prepend($('<form id="navbar-signup" data-track-event="signup_website" data-active-campaign-list="90" data-active-campaign-skip-free="true" action="https://run.reply.io/home/extregister" method="POST"></form>'));
+			SNG_NAVBAR_ELEM.appendTo('#navbar-signup');
+		}
+		
+		SNG_BODY_ELEM.addClass('floating');
+	}
+	
+	function removeSignupFromNavbar (elem) {
+		if (sng_init && !elem.hasClass(SNG_HEADER_CLASS))
+			return;
+		
+		elem.removeClass(SNG_HEADER_CLASS);
+
+		SNG_LOGIN_BUTTON_ELEM.show();
+		
+		$("li#menu-subscribe-email").remove();
+		$("li#menu-subscribe-btn").remove();
+		
+		SNG_BODY_ELEM.removeClass('floating');
+		
+		sng_init = true;
+	}
+	
+	$(window).scroll(function () {
+		if (!SNG_HEADER_ELEM)
+			return;
+		
+		if ($(window).width() < 993) {
+			removeSignupFromNavbar(SNG_HEADER_ELEM);
+		}
+		else
+		{
+			var scrollPos = $(window).scrollTop();
+			
+			if (scrollPos > SNG_HEADER_ELEM.offset.top) {
+				addSignupToNavbar(SNG_HEADER_ELEM);
+			}
+			else if (scrollPos == 0) {
+				removeSignupFromNavbar(SNG_HEADER_ELEM);
+			}
+		}
+	});
+});

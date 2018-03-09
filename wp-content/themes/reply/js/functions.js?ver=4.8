@@ -1,0 +1,216 @@
+console.log('2017.10.24 09:45');
+
+function isFreeProvider (domain) {
+	if (domain && window.__freeEmailProviders && window.__freeEmailProviders.indexOf(domain.toLowerCase()) !== -1) {
+		return true;
+	}
+	
+	return false;
+}
+
+function ActiveCampaign () {
+	return {
+		lists: {
+			BLOG: 27,
+			SALES_TOOLS: 28,
+			EBOOK_SALES_OUTREACH: 34,
+			EBOOK_ACCOUNT_BASED_SALES: 68,
+			EBOOK_RA_CASE_STUDY: 85,
+			DEMO: 72,
+			DEMO_PAGE: 73,
+			OUTBOUND_SALES_SCORE: 69,
+			WEBINAR_PROACTIVE: 35,
+			WEBINAR_INVISIBLE: 83,
+			CRA_LANDING: 81,
+			SAAS_TRIAL: 89,
+			NOT_FINISHED_REGISTER: 90
+		},
+		send: function (email, listid, force) {
+			if (!email || !listid) {
+				return;
+			}
+			
+			//if (isContactFormAlreadySent(email)) {
+			//	return;
+			//}
+			
+			console.log('Sending request to ActiveCampaign: ' + email + ' [' + listid + ']');
+			
+			$.ajax({
+				url: location.protocol + '//' + location.host + '/scripts/activecampaign.php',
+				type: 'POST',
+				data: {
+					email: email,
+					listid: listid,
+					force: force
+				}
+			});
+		}
+	}
+}
+
+// !!! Deprecated
+function sendToActiveCampaign (email, listid, force) {
+	ActiveCampaign().send(email, listid, force);
+}
+
+function rpIsValidEmail (email) {
+	if (!email) {
+		return false;
+	}
+	
+	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	
+	return re.test(email);
+}
+
+function isContactFormAlreadySent (email) {
+	if (!email) {
+		return false;
+	}
+	
+	console.log('--- isContactFormAlreadySent ---');
+	
+	if (typeof Cookies === 'undefined') {
+		console.log('Cookies is undefined');
+		return false;
+	}
+	
+	//var cookiesFormPage = window.location.pathname == '/' ? 'replyio' : encodeURIComponent(window.location.pathname);
+	var contactFormId = $('.wpcf7').attr('id'); //|| cookiesFormPage;
+	
+	//console.log('contactFormId:');
+	//console.log(contactFormId);
+	
+	if (typeof contactFormId === 'undefined') {
+		console.log('Cannot find contact form');
+		return false;
+	}
+	
+	var cookiesKey = '__replyio_contact_form';
+	var cookiesExpireDays = 1;
+	var cookiesData = Cookies.getJSON(cookiesKey);
+	
+	var ip = wpglobals.userIp || '';
+	
+	var value = {
+		email: email, 
+		ip: ip, 
+		formid: contactFormId
+	};
+	
+	//console.log('value:');
+	//console.log(value);
+	
+	if (!cookiesData) {
+		console.log('New form sent - ok1');
+		Cookies.set(cookiesKey, value, { expires: cookiesExpireDays });
+		return false;
+	}
+	
+	console.log('cookiesData:');
+	console.log(cookiesData);
+	
+	if (cookiesData.formid === contactFormId) {
+		if (cookiesData.email.toLowerCase() === email.toLowerCase()) {
+			console.log('Form already sent (email) - skip');
+			return true;
+		}
+		else if (ip === cookiesData.ip) {
+			console.log('Form already sent (ip) - skip');
+			return true;
+		}
+		else {
+			console.log('Form exists without data');
+		}
+	}
+	
+	Cookies.set(cookiesKey, value, { expires: cookiesExpireDays });
+	
+	console.log('New form sent - ok2');
+	
+	return false;
+}
+
+function rpTrack (data, eventName, eventType) {
+	console.log('--- rpTrack ---');
+	
+	var email;
+	
+	if (data && data.email) {
+		email = data.email;
+	}
+	
+	//if (isContactFormAlreadySent(email)) {
+	//	return;
+	//}
+	
+	if (!eventType) {
+		eventType = 'submit';
+	}
+	
+	if (typeof woopra != 'undefined') {
+		console.log('Track Woopra event: ' + eventName);
+		
+		if (email) {
+			woopra.identify({ email: email });
+		}
+		
+		woopra.track(eventName, {
+			url: window.location.pathname,
+			title: document.title
+		});
+	}
+	
+	// get active google analytics tracker
+	if (typeof real_ga != 'undefined') {
+		var tracker = real_ga.getAll()[0].get('name');
+		
+		if (tracker) {
+			console.log('Track GA event: ' + eventName);
+			real_ga(tracker + '.send', 'event', { eventCategory: eventName, eventAction: eventType});
+		}
+	}
+}
+
+function sendDemoFormToApp (email, name, company, phone) {
+	if (!email) {
+		return;
+	}
+	
+	console.log('--- sendDemoFormToApp ---');
+	
+	if (isContactFormAlreadySent(email)) {
+		return;
+	}
+	
+	console.log('Sending demo form to app');
+	
+	$.ajax({
+		url: location.protocol + '//' + 'run.' + location.host + '/demorequest/set',
+		type: 'POST',
+		data: {
+			email: email,
+			name: name, 
+			company: company,
+			phone: phone
+		}
+	});
+}
+
+function appDemoSendToActive (email, fullname, type) {
+	if (!email) {
+		return;
+	}
+	
+	$.ajax({
+		type: 'POST',
+		dataType: 'json',
+		url: location.protocol + '//' + 'run.' + location.host + '/demorequest/sendtoactive', 
+		data: {
+			fullname: fullname, 
+			email: email, 
+			type: type
+		}
+	});
+}

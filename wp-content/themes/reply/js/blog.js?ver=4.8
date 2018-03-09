@@ -1,0 +1,25 @@
+$(function () {
+
+	var postShareElem = $('.postshare');
+
+	$(window).scroll(function () {
+
+		// Messenger bar in the top of page
+		if ($(this).scrollTop() > 0) {
+			$('.mcwidget-overlay').fadeIn();
+		} else {
+			$('.mcwidget-overlay').fadeOut();
+		}
+		
+		// post share
+		if ($(window).scrollTop() > 115){
+			//postShareElem.show("blind", 80);
+			postShareElem.addClass('visible');
+		}
+		else if ($(window).scrollTop() < 115){
+			//postShareElem.hide("blind", 150);
+			postShareElem.removeClass('visible');
+		}
+	});
+
+});

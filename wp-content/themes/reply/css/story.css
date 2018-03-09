@@ -1,0 +1,209 @@
+/* Customer story
+ */
+.container.story{
+	padding-bottom: 100px;
+}
+
+.container.story .content p{
+    margin: 0 0 30px;
+}
+
+/* Header - First on page */
+.container.story .content h1.fop{
+	margin-top: 0;
+}
+
+/* Head - titles */
+.container.story .content .title h1{
+	color: #1c1c1c;
+	text-align: center;
+	font-weight: 300;
+	font-size: 50px;
+	margin-top: 0;
+}
+
+.container.story .content .wrap-head .title h1{
+	text-align: left;
+}
+@media (max-width: 991px){
+	.container.story .content .wrap-head .title h1{
+		text-align: center;
+	}
+}
+
+.container.story .content .wrap-head{
+	position: relative;
+	border-bottom: 1px solid #dddddd;
+	padding-top: 75px;
+}
+@media (min-width: 768px){
+	.container.story .content .wrap-head:after {
+		content: '';
+		background-image: url('../images/triangle-blue.png');
+		position: absolute;
+		width: 13px;
+		height: 9px;
+		bottom: -9px;
+		left: 50%;
+	}
+}
+
+.container.story .content .wrap-head .head{
+	margin: 0 auto;
+	padding-bottom: 75px;
+}
+
+/* Head - leftside */
+.container.story .content .wrap-head .head .back{
+	padding-bottom: 25px;
+}
+
+.container.story .content .wrap-head .head .back a{
+	color: #75858f;
+}
+
+.container.story .content .wrap-head .head .title{
+	
+}
+
+/* Head - rightside */
+.container.story .content .wrap-head .head .logo .image,
+.container.story .content .wrap-head .head .logo .link{
+	min-height: 50px;
+}
+.container.story .content .wrap-head .head .logo .link div{
+	line-height: 50px;
+}
+
+@media (max-width: 767px){
+	.container.story .content .wrap-head .head .logo .image{
+		padding-bottom: 25px;
+	}
+	.container.story .content .wrap-head .head .logo .image img{
+		margin: 0 auto;
+	}
+	.container.story .content .wrap-head .head .logo .link{
+		text-align: center;
+	}
+}
+
+@media (max-width: 991px){
+	.container.story .content .wrap-head .head .pad{
+		padding-top: 25px;
+	}
+}
+
+.container.story .content .wrap-head .head .logo .link a{
+	color: #4d9de0;
+}
+.container.story .content .wrap-head .head .logo .link a:hover{
+	color: #167fd7;
+}
+
+.container.story .content .wrap-head .head .about{
+	padding-top: 15px;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+/* Disclose - content */
+.container.story .content .wrap-disclose{
+	padding-top: 75px;
+	padding-bottom: 150px;
+}
+
+.container.story .content .wrap-disclose .disclose{
+	margin: 0 auto;
+}
+
+.container.story .content .wrap-disclose .disclose .text{
+	padding: 0 20%;
+	color: #333333;
+	font-weight: 300;
+	font-size: 19px;
+	line-height: 32px;
+}
+@media (max-width: 991px){
+	.container.story .content .wrap-disclose .disclose .text{
+		padding: 0 10%;
+	}
+}
+
+.container.story .content .wrap-disclose .disclose .quote{
+	padding: 60px 15%;
+}
+@media (max-width: 991px){
+	.container.story .content .wrap-disclose .disclose .quote{
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+}
+
+.container.story .content .wrap-disclose .disclose .quote .cont{
+
+}
+
+.container.story .content .wrap-disclose .disclose .quote .author{
+
+}
+
+.container.story .content .wrap-disclose .disclose .text .tell{
+	padding-top: 50px;
+}
+
+.container.story .content .wrap-disclose .disclose .text .tell .col-md-5,
+.container.story .content .wrap-disclose .disclose .text .tell .col-md-7{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.container.story .content .wrap-disclose .disclose .text .in{
+	font-weight: 300;
+	min-height: initial;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: top;
+	zoom: 1;
+	*display: inline;
+	_height: auto;
+}
+
+.container.story .content .wrap-disclose .disclose .text .in img{
+	max-width: 100px;
+	width: expression(document.body.clientWidth < 100? "100px": "auto");
+
+    height: auto;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.container.story .content .wrap-disclose .disclose .text .in .whois{
+	color: #53c169;
+	font-size: 15px;
+	font-weight: 400;
+	padding-top: 20px;
+    padding-left: 20px;
+}
+.container.story .content .wrap-disclose .disclose .text .in .rank{
+	color: #a7b3bc;
+	font-size: 14px;
+	padding-left: 20px;
+}
+
+.container.story .content .wrap-disclose .disclose .text .sunny{
+	padding-top: 0;
+	font-size: 14px;
+    font-weight: 400;
+    color: #999;
+}
+@media (max-width: 991px){
+	.container.story .content .wrap-disclose .disclose .text .sunny{
+		padding-top: 30px;
+	}
+}
+
+/* Signup fix */
+.content .wrap-signup{
+	padding-top: 125px;
+}

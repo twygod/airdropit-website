@@ -1,0 +1,40 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3451418, 2017-09-14T08:21:09-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: CamphorStd-Regular by Monotype 
+ * URL: https://www.myfonts.com/fonts/mti/camphor/std-regular/
+ * 
+ * Webfont: CamphorStd-Medium by Monotype 
+ * URL: https://www.myfonts.com/fonts/mti/camphor/std-medium/
+ * 
+ * Webfont: CamphorStd-Bold by Monotype 
+ * URL: https://www.myfonts.com/fonts/mti/camphor/std-bold/
+ * 
+ * 
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3451418
+ * Licensed pageviews: 250,000
+ * Webfonts copyright: Copyright 2010 Monotype Imaging Inc. All rights reserved. Designed by Nick Job.
+ * 
+ * © 2017 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("https://hello.myfonts.net/count/34aa1a");
+
+  
+@font-face {font-family: 'CamphorStd-Regular';src: url('../fonts/34AA1A_0_0.eot');src: url('../fonts/34AA1A_0_0.eot?') format('embedded-opentype'),url('../fonts/34AA1A_0_0.woff2') format('woff2'),url('../fonts/34AA1A_0_0.woff') format('woff'),url('../fonts/34AA1A_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'CamphorStd-Medium';src: url('../fonts/34AA1A_1_0.eot');src: url('../fonts/34AA1A_1_0.eot?') format('embedded-opentype'),url('../fonts/34AA1A_1_0.woff2') format('woff2'),url('../fonts/34AA1A_1_0.woff') format('woff'),url('../fonts/34AA1A_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'CamphorStd-Bold';src: url('../fonts/34AA1A_2_0.eot');src: url('../fonts/34AA1A_2_0.eot?') format('embedded-opentype'),url('../fonts/34AA1A_2_0.woff2') format('woff2'),url('../fonts/34AA1A_2_0.woff') format('woff'),url('../fonts/34AA1A_2_0.ttf') format('truetype');}
+ 

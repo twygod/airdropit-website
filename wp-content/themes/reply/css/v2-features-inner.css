@@ -1,0 +1,208 @@
+.v2-head,
+.navbar-default,
+li.header-submenu > ul {
+	background: #fab86a;
+}
+
+.v2-head {
+	padding-bottom: 0;
+}
+
+.v2-head h2 {
+	margin: 0;
+}
+
+@media (max-width: 992px) {
+	.v2-head h1 {
+		padding-top: 50px;
+	}
+	.v2-head h2 {
+		padding-bottom: 30px;
+	}
+}
+
+@media (min-width: 993px) {
+	.col-md-7,
+	.col-md-9 {
+		padding-left: 45px;
+	}
+	.v2-head h1,
+	.v2-head h2 {
+		text-align: left;
+	}
+}
+
+.v2-features {
+    padding-top: 75px;
+	padding-bottom: 125px;
+}
+
+.v2-features h6 {
+	padding-bottom: 25px;
+	font-size: 19px;
+	color: #262626;
+	text-align: left;
+}
+
+.v2-features h6.next {
+	padding-top: 75px;
+}
+
+.v2-features p {
+	margin-bottom: 45px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	color: #2d2d2d;
+}
+
+.v2-head .features-menu {
+	font-family: "futura-pt", sans-serif;
+	padding: 25px 0 15px 0;
+	border: 1px solid #dfe7ee;
+	background: #ffffff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+@media (min-width: 993px) {
+	.v2-head .features-menu {
+		position: relative;
+		bottom: -10px;
+		margin-bottom: -285px;	
+	}
+}
+
+.v2-head .features-menu .caption {
+	color: #262626;
+	font-size: 18px;
+    padding-left: 25px;
+	padding-right: 25px;
+    padding-bottom: 5px;
+}
+
+.v2-head .features-menu .more {
+	padding-top: 25px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	color: #8f9499;
+	text-align: center;
+	line-height: 14px;
+}
+
+.v2-head .features-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;	
+}
+
+.v2-head .features-menu ul li {
+	position: relative;
+	font-size: 18px;
+	border-bottom: 1px solid #dfe7ee;
+}
+
+.v2-head .features-menu ul li.last {
+	border: none;
+}
+
+.v2-head .features-menu ul li a {
+	display: block;
+	padding: 12px 12px 12px 25px;
+}
+
+.v2-head .features-menu ul li a > i {
+	font-size: 16px;
+	margin-right: 5px;
+}
+
+/*
+.v2-head .features-menu ul li a:before {
+	content: '';
+	position: absolute;
+	z-index: 5;
+	left: 25px;
+	top: 17px;
+	background-image: url('/wp-content/themes/reply/images/v2/features-icons-sm.png');
+	background-repeat: no-repeat;
+	width: 16px;
+	height: 16px;
+}
+
+.v2-head .features-menu ul li a.no1:before {
+	background-position: 0px -17px;
+}
+.v2-head .features-menu ul li a.no2:before {
+	
+}
+.v2-head .features-menu ul li a.no3:before {
+	background-position: 0px -34px;
+}
+.v2-head .features-menu ul li a.no4:before {
+	background-position: 0px -51px;
+}
+.v2-head .features-menu ul li a.no5:before {
+	background-position: 0px -67px;
+}
+.v2-head .features-menu ul li a.no6:before {
+	background-position: 0px -84px;
+}
+.v2-head .features-menu ul li a.no7:before {
+	background-position: 0px -100px;
+}
+.v2-head .features-menu ul li a.no8:before {
+	background-position: 0px -117px;
+}
+.v2-head .features-menu ul li a.no9:before {
+	background-position: 0px -134px;
+}
+
+.v2-head .features-menu ul li.active a.no1:before {
+	background-position: -17px -17px;
+}
+.v2-head .features-menu ul li.active a.no2:before {
+	background-position: -17px 0;
+}
+.v2-head .features-menu ul li.active a.no3:before {
+	background-position: -17px -34px;
+}
+.v2-head .features-menu ul li.active a.no4:before {
+	background-position: -17px -51px;
+}
+.v2-head .features-menu ul li.active a.no5:before {
+	background-position: -17px -67px;
+}
+.v2-head .features-menu ul li.active a.no6:before {
+	background-position: -17px -84px;
+}
+.v2-head .features-menu ul li.active a.no7:before {
+	background-position: -17px -100px;
+}
+.v2-head .features-menu ul li.active a.no8:before {
+	background-position: -17px -117px;
+}
+.v2-head .features-menu ul li.active a.no9:before {
+	background-position: -17px -134px;
+}
+*/
+
+.v2-head .features-menu ul li a:hover {
+	background: #f8f9fd;
+}
+
+.v2-head .features-menu ul li a:hover:after {
+	content: '\2192';
+    position: absolute;
+    right: 34px;
+    top: 0px;
+    font-size: 32px;
+    color: #00adfe;
+    width: 24px;
+    height: 100%;
+}
+
+.v2-head .features-menu ul li.active a {
+	color: #262626 !important;
+	pointer-events: none;
+	cursor: default;
+}

@@ -1,0 +1,59 @@
+$(function () {
+	$(window).scroll(function () {
+		var sng_init = false;
+		
+		var sng_header = $('.navbar-default');
+		var sng_content = $('.content');
+		
+		if (!sng_header || !sng_content)
+			return;
+		
+		if ($(window).width() < 993) {
+			removeSignupFromNavbar(sng_header, sng_content);
+		}
+		else {
+			var scrollPos = $(window).scrollTop();
+			
+			if (scrollPos > sng_header.offset().top) {
+				addSignupToNavbar(sng_header, sng_content);
+			}
+			else if (scrollPos == 0) {
+				removeSignupFromNavbar(sng_header, sng_content);
+			}
+		}
+		
+		function addSignupToNavbar (headerElem, contentElem) {
+			if (headerElem.hasClass('sticky') || contentElem.hasClass('sticky')) {
+				return;
+			}
+			
+			headerElem.addClass('sticky');
+			contentElem.addClass('sticky');
+			
+			$('li#menu-item-22').hide();
+
+			$("ul#menu-header").append('<li id="menu-subscribe-email"><input type="email" name="email" placeholder="Your Email" required></li>');
+			$("ul#menu-header").append('<li id="menu-subscribe-btn"><button type="submit" class="btn btn-success">Sign up</button></li>');
+			
+			if (!($('#signup-head').length)) {
+				$('.menu-header-container').prepend($('<form id="signup-head" data-track-event="signup_website" data-active-campaign-list="90" data-active-campaign-skip-free="true" action="https://run.reply.io/home/extregister" method="POST"></form>'));
+				$('ul#menu-header').appendTo('#signup-head');
+			}
+		}
+		
+		function removeSignupFromNavbar (headerElem, contentElem) {
+			if (sng_init && (!headerElem.hasClass('sticky') || !contentElem.hasClass('sticky'))) {
+				return;
+			}
+			
+			headerElem.removeClass('sticky');
+			contentElem.removeClass('sticky');
+			
+			$('li#menu-item-22').show();
+			$("li#menu-subscribe-email").remove();
+			$("li#menu-subscribe-btn").remove();
+			
+			sng_init = true;
+		}
+	});
+});

@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'features';
+    src: url('../fonts/features-webfont.woff2') format('woff2'),
+         url('../fonts/features-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: E+900-910;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'features' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-analytics-and-tracking:before {
+  content: "\e900";
+}
+.icon-360-contact-view:before {
+  content: "\e901";
+}
+.icon-crm-integrations:before {
+  content: "\e902";
+}
+.icon-email-automation:before {
+  content: "\e903";
+}
+.icon-email-validation:before {
+  content: "\e904";
+}
+.icon-gmail-integration:before {
+  content: "\e905";
+}
+.icon-lead-generation:before {
+  content: "\e906";
+}
+.icon-lead-management:before {
+  content: "\e907";
+}
+.icon-phone-dialer:before {
+  content: "\e908";
+}
+.icon-team-collaboration:before {
+  content: "\e909";
+}

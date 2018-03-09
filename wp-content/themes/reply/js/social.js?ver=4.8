@@ -1,0 +1,70 @@
+function socialshare (soc, title, desc) {
+	var link = window.location.href;
+	title = title ? title : document.title;
+	
+	if (!desc) {
+		var metaDesc = document.querySelector('meta[name="description"]');
+		if (metaDesc) {
+			desc = metaDesc.getAttribute("content");
+		}
+	}
+	
+	var image = document.querySelector('meta[property="og:image"]');
+	if (image) {
+		image = image.getAttribute("content");
+	}
+	
+	var target;
+	
+	if (soc == 'gp') {
+		target = 'http://plus.google.com/share';
+		target += '?url=' + encodeURIComponent(link);
+	}
+	else if (soc == 'fb') {
+		target = 'https://www.facebook.com/sharer/sharer.php';
+		target += '?u=' + encodeURIComponent(link);
+		target += '&t=' + title;
+	}
+	else if (soc == 'tw') {
+		target = 'https://twitter.com/share';
+		target += '?url=' + encodeURIComponent(link);
+		target += '&text=' + title;
+	}
+	else if (soc == 'in') {
+		target = 'http://www.linkedin.com/shareArticle?mini=true';
+		target += '&url=' + encodeURIComponent(link);
+		target += '&title=' + title;
+		if (desc)
+			target += '&summary=' + desc;
+		target += '&source=' + encodeURIComponent(link);
+	}
+	else if (soc == 'pn') {
+		target = 'http://pinterest.com/pin/create/button/';
+		target += '?url=' + encodeURIComponent(link);
+		
+		if (desc)
+			target += '&description' + encodeURIComponent(desc);
+		
+		if (image)
+			target += '&media=' + encodeURIComponent(image);
+	}
+	else if (soc == 're') {
+		target = 'https://www.reddit.com/submit';
+		target += '?url=' + encodeURIComponent(link);
+	}
+	else if (soc == 'tr') {
+		target = 'http://www.tumblr.com/share/link';
+		target += '?url=' + encodeURIComponent(link);
+		target += '&name=' + title;
+		
+		if (desc)
+			target += '&description=' + desc;
+	}
+	
+	if (target) {
+		var top = (screen.height / 2) - (580 / 2);
+		var left = (screen.width / 2) - (560 / 2);
+		var size = 'width=560,height=580,top=' + top + ',left=' + left;
+		window.open(target, title, size);
+	}
+}

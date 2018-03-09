@@ -1,0 +1,191 @@
+$(function () {
+	var sliderDiv = $('#lsd');
+	var nlDiv = $('#nl');
+	var mxDiv = $('#mx');
+	var prDiv = $('#per');
+	
+	var SLIDER_MIN = 0;
+	var SLIDER_MAX = 3;
+	
+	function getNormalizedValue (val) {
+		if(val > 0 && val < 50)
+			val = 0;
+		else if(val >= 50 && val < 150)
+			val = 1;
+		else if(val >= 150 && val < 250)
+			val = 2;
+		else if(val >= 250 && val < 350)
+			val = 3;
+		else if(val >= 350) //&& val < 450
+			val = 3.95;
+		//	val = 3;
+		//else if(val >= 450 && val < 550)
+		//	val = 4.95;
+		//	val = 5;
+		//else if(val >= 550)
+		//	val = 5.95;
+		
+		return val;
+	}
+
+	function changeText (val) {
+		$('#xpeople').text(peopleNum[val]);
+		//$('#xprice').text((val == SLIDER_MIN || val > SLIDER_MAX ? '' : '$') + (isMonthly ? priceMonthly[val] : priceYearly[val]));
+		$('#xprice').text((val > SLIDER_MAX ? '' : '$') + (isMonthly ? priceMonthly[val] : priceYearly[val]));
+		
+		if (typeof priceToday !== 'undefined' && priceToday != null && priceToday.length) {
+			var calcTodayPrice = priceToday[val];
+			
+			$('#stock').text((val > SLIDER_MAX ? '' : '$') + calcTodayPrice);
+		}
+		
+		//if (val === SLIDER_MIN) {
+		//	$('#per').hide();
+		//}
+		//else
+		if (val <= SLIDER_MAX) { /* && val > SLIDER_MIN */
+			$('#per').show();
+		}
+		
+		if (val === SLIDER_MAX) {
+			$('#x-an').show();
+			$('#x-of').show();
+		}
+		else {
+			$('#x-an').hide();
+			$('#x-of').hide();
+		}
+		
+		if (val > SLIDER_MAX) {
+			nlDiv.hide();
+			mxDiv.show();
+		}
+		else {
+			nlDiv.show();
+			mxDiv.hide();
+		}
+	}
+	
+	function setValue (val) {
+		sliderDiv.slider('value', val * 100);
+	}
+	
+	function reCalc () {
+		var val = sliderDiv.slider("value");
+		changeText(getNormalizedValue(val));
+		setValue(getNormalizedValue(val));
+	}
+	
+	var isChanging = false;
+	
+	function moveTo (from, to, decrease) {
+		if (!isChanging) 
+			isChanging = true;
+		
+		if (decrease) {
+			from -= 1;
+			
+			if (from <= to){
+				isChanging = false;
+				//console.log('timer stop');
+				return;
+			}
+			else {
+				sliderDiv.slider('value', from);
+				setTimeout(function(){
+					moveTo(from, to, decrease);
+				}, 1);
+			}
+		}
+		else {
+			from += 1;
+		
+			if(from >= to) {
+				isChanging = false;
+				//console.log('timer stop');
+				return;
+			}
+			else {
+				sliderDiv.slider('value', from);
+				setTimeout(function () {
+					moveTo(from, to, decrease);
+				}, 1);
+			}
+		}
+	}
+
+	sliderDiv.slider({
+		value: 200,
+		min: 0,
+		max: (SLIDER_MAX + 1) * 100,
+		step: 1,
+		range: 'min',
+		animate: 'fast',
+		slide: function (event, ui) {
+			if (isChanging) 
+				return false;
+			changeText(getNormalizedValue(ui.value));
+		},
+		stop: function(event, ui){
+			if(isChanging) return false;
+			
+			var curPos = sliderDiv.slider('value');
+			var slideToPos = getNormalizedValue(curPos) * 100;
+			
+			var decrease = false;
+			if(curPos > slideToPos)
+				decrease = true;
+			
+			setTimeout(function(){
+				moveTo(curPos, slideToPos, decrease);
+			}, 1);
+			
+			//setValue(getNormalizedValue(ui.value));
+		}
+	});
+	
+	sliderDiv.slider('pips', {
+		step: 100,
+        first: "pip",
+        last: "pip"
+    });
+
+	$('a#xyear').click(function () {
+		if (isMonthly) {
+			isMonthly = false;
+			$('#xmonth').removeClass('cur');
+			$(this).addClass('cur');
+			reCalc();
+		}
+	});
+	$('a#xmonth').click(function () {
+		if (!isMonthly) {
+			isMonthly = true;
+			$('#xyear').removeClass('cur');
+			$(this).addClass('cur');
+			reCalc();
+		}
+	});
+	
+	/*function isFreePlan () {
+		if (getNormalizedValue(sliderDiv.slider("value")) == 0)
+			return true;
+		return false;
+	}*/
+	
+	reCalc();
+	
+	setTimeout(function () { 
+		$('.gr').removeClass('rubberBand animated');
+	}, 1000);
+	
+	$('a#reglink').click(function () {
+		var baseUrl = "https://run.reply.io/register";
+		
+		if (typeof isThanksgiving !== 'undefined') {
+			baseUrl += '?utm_source=Thanksgiving%20pricing&utm_medium=landing%20page';
+		}
+		
+		window.location.href = baseUrl; /*+ (isFreePlan() ? "?planMode=free" : "");*/
+	});
+});

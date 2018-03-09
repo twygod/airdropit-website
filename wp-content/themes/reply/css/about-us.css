@@ -1,0 +1,162 @@
+/* About us
+ */
+.container.about{
+	padding-bottom: 100px;
+}
+
+/* About - titles */
+.container.about .content .title h1{
+	color: #1c1c1c;
+	text-align: center;
+	font-weight: 300;
+	font-size: 52px;
+	margin-top: 0;
+}
+
+/* About - head */
+.container.about .content .wrap-head{
+	position: relative;
+	border-bottom: 1px solid #dddddd;
+	padding-top: 75px;
+}
+@media (min-width: 768px){
+	.container.about .content .wrap-head:after {
+		content: '';
+		background-image: url('https://reply.io/wp-content/themes/reply/images/feature-triangle.png');
+		position: absolute;
+		width: 13px;
+		height: 9px;
+		bottom: -9px;
+		left: 50%;
+	}
+}
+
+.container.about .content .wrap-head .head{
+	margin: 0 auto;
+	padding-bottom: 100px;
+}
+
+/* About - content */
+.container.about .content .wrap-cont .cont{
+	padding: 0;
+	margin: 0 auto;
+	padding-top: 85px;
+	padding-bottom: 100px;
+	font-size: 18px;
+	font-weight: 300;
+	color: #333333;
+	line-height: 1.6;
+	max-width: 850px;
+	width: 100%;
+}
+@media (max-width: 991px){
+	.container.about .content .wrap-cont .cont{
+		padding-left: 10%;
+		padding-right: 10%;
+		max-width: initial !important;
+	}
+}
+
+/* About - foot */
+.container.about .content .wrap-foot .foot{
+	padding-top: 25px;
+	font-weight: 300;
+	color: #333333;
+}
+
+.container.about .content .wrap-foot .foot a{
+	color: #2c9cfa;
+	text-decoration: none;
+}
+.container.about .content .wrap-foot .foot a:hover{
+	text-decoration: underline;
+}
+
+.container.about .content .wrap-foot .foot .row{
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.container.about .content .wrap-foot .foot .row ,
+.container.about .content .wrap-foot .foot .row .col-md-4{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.container.about .content .wrap-foot .foot span{
+    font-size: 20px;
+	color: #000000;
+}
+
+.container.about .content .wrap-foot .foot .getin,
+.container.about .content .wrap-foot .foot .bookin,
+.container.about .content .wrap-foot .foot .learnin{
+	padding: 75px 40px;
+	height: 300px;
+	line-height: 2;
+	font-size: 15px;
+}
+@media (max-width: 767px){
+	.container.about .content .wrap-foot .foot .getin,
+	.container.about .content .wrap-foot .foot .bookin,
+	.container.about .content .wrap-foot .foot .learnin{
+		padding: 45px;
+		padding-bottom: 75px;
+	}
+	.container.about .content .wrap-foot .foot .bookin{
+		padding-bottom: 100px;
+	}
+	.container.about .content .wrap-foot .foot span{
+		font-size: 28px;
+		white-space: nowrap;
+	}
+}
+
+.container.about .content .wrap-foot .foot .getin{
+	background-color: #fafdff;
+}
+.container.about .content .wrap-foot .foot .bookin{
+	background-color: #f0f6f9;
+}
+.container.about .content .wrap-foot .foot .learnin{
+	background-color: #fafdff;
+}
+
+@media (min-width: 992px){
+	.container.about .content .wrap-foot .foot .getin,
+	.container.about .content .wrap-foot .foot .bookin,
+	.container.about .content .wrap-foot .foot .learnin{
+		padding: 100px 75px;
+		height: 375px;
+	}
+	.container.about .content .wrap-foot .foot .getin{
+		text-align: right;
+		background-image: url('../images/deco-drone.png');
+		background-repeat: no-repeat;
+		background-position: 40% 20%;
+	}
+	.container.about .content .wrap-foot .foot .bookin{
+		background-image: url('../images/deco-quote.png');
+		background-repeat: no-repeat;
+		background-position: 10% 20%;
+	}
+	.container.about .content .wrap-foot .foot .learnin{
+		background-image: url('../images/deco-announce.png');
+		background-repeat: no-repeat;
+		background-position: 20% 20%;
+	}
+}
+@media (min-width: 1440px){
+	.container.about .content .wrap-foot .foot .getin{
+		background-position: 75% 20%;
+	}
+	.container.about .content .wrap-foot .foot .bookin .ins{
+		margin: 0 auto;
+		width: 285px;
+	}
+}
+
+/* Singup fix */
+.container.about .content .wrap-signup{
+	padding-top: 95px;
+}

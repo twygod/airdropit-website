@@ -1,0 +1,197 @@
+/* Outbound Sales
+ */
+.jdblock{
+	position: relative;
+	height: 100px;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	margin-bottom: 30px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+	opacity: 1;
+}
+
+.jdblock.hfopac{
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	-moz-opacity: 0.6;
+	-khtml-opacity: 0.6;
+	opacity: 0.6;
+}
+
+.jdblock.open{
+
+}
+
+.jdblock:hover{
+	cursor: pointer;
+	border-color: #A5B7C3;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+	opacity: 1;
+}
+
+.jdblock.open:hover{
+	/*border-color: #A5C9E0;*/
+}
+
+.jdblock .out{
+	padding: 18px 24px;
+}
+
+.jdblock .progress,
+.jdblock .progress .ui-progressbar-value{
+	height: 5px;
+	border: none !important;
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+
+.jdblock .progress{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+    background: none !important;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.jdblock .progress .ui-progressbar-value{
+	transition: width 0.5s;
+	-webkit-transition: width 0.5s;
+	-moz-transition: width 0.5s;
+	-o-transition: width 0.5s;
+	background: rgba(33,134,217,1);
+	background: -moz-linear-gradient(left, rgba(33,134,217,1) 0%, rgba(16,202,118,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(33,134,217,1)), color-stop(100%, rgba(16,202,118,1)));
+	background: -webkit-linear-gradient(left, rgba(33,134,217,1) 0%, rgba(16,202,118,1) 100%);
+	background: -o-linear-gradient(left, rgba(33,134,217,1) 0%, rgba(16,202,118,1) 100%);
+	background: -ms-linear-gradient(left, rgba(33,134,217,1) 0%, rgba(16,202,118,1) 100%);
+	background: linear-gradient(to right, rgba(33,134,217,1) 0%, rgba(16,202,118,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2186d9', endColorstr='#10ca76', GradientType=1 );
+}
+
+.out .name{
+	font-size: 26px;
+}
+.out .descr{
+	line-height: 1.8;
+	color: #75858f;
+}
+.out i.glyphicon.glyphicon-chevron-down,
+.out i.glyphicon.glyphicon-chevron-up{
+	font-size: 26px;
+	margin-left: 25px;
+	color: #666;
+}
+.out i.glyphicon.glyphicon-chevron-up{
+	color: #A8BECC;
+}
+
+.out .pointsnum,
+.out .pointstext{
+	font-size: 18px;
+	line-height: 46px;
+}
+
+.out .name p{
+	display: none;
+	float: right;
+	font-weight: normal;
+	line-height: initial;
+}
+@media (max-width: 767px){
+	.out i.glyphicon.glyphicon-chevron-down,
+	.out i.glyphicon.glyphicon-chevron-up{
+		margin-left: 0;
+		font-size: 28px;
+	}
+	.out span.pointsnum{
+		font-size: 20px;
+	}
+	.out.sec span.pointsnum.base,
+	.out.sec span.pointstext.base{
+		display: none;
+	}
+	.out .name p{
+		display: initial;
+	}
+}
+
+.quizdrop-preparation,
+.quizdrop-emailcopy,
+.quizdrop-results{
+	padding: 0 25px;
+	padding-top: 0;
+	display: none;
+	-webkit-transition: all 0.25s linear;
+	-moz-transition: all 0.25s linear;
+	-o-transition: all 0.25s linear;
+	-ms-transition: all 0.25s linear;
+	transition: all 0.25s linear;
+}
+.quizdrop-preparation.open,
+.quizdrop-emailcopy.open,
+.quizdrop-results.open{
+	display: block;
+	-webkit-animation: fadeIn 0.4s;
+	animation: fadeIn 0.4s;
+}
+
+@media (max-width: 767px){
+	.out .name{
+		padding-bottom: 8px;
+	}
+	.quizdrop-preparation,
+	.quizdrop-emailcopy,
+	.quizdrop-results{
+		padding-left 0;
+		padding-right: 0;
+	}
+	.preparation .out,
+	.emailcopy .out,
+	.results .out{
+		padding-bottom: 10px;
+	}
+	.preparation .out.sec,
+	.emailcopy .out.sec,
+	.results .out.sec{
+		white-space: initial;
+		padding-top: 0;
+		text-align: center;
+		line-height: initial;
+	}
+}
+@media (max-width: 991px){
+	.preparation,
+	.emailcopy,
+	.results{
+		height: auto;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px){
+	.preparation .out.sec,
+	.emailcopy .out.sec,
+	.results .out.sec{
+		white-space: nowrap;
+	}
+}
+.quizlist .subsecttext{
+	padding-bottom: 25px;
+}
+#question span#text,
+#question span#qnum{
+	font-size: 16px;
+}

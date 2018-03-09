@@ -1,0 +1,41 @@
+'use strict';
+
+$(function () {
+	var formWrap = $('.webinar-content-wrap .left-side .form-wrap');
+	
+	var leftSide = $('.webinar-content-wrap .left-side');
+	var windowHeight = $(window).height() || 0;
+	
+	$('.form-btn.green').bind('click', function () {
+		$('.register-wrap').addClass('hide');
+		$('.notice-wrap').removeClass('hide');
+	});
+	
+	formWrap.css('left', '0px');
+	
+	var topOffs = windowHeight / 2;
+	
+	if ($(window).height() > 700) {
+		var minOffs = ($('#logo-container').height() || 0) + ($('#date-container').height() || 0);
+		console.log('minOffs1 = ' + minOffs);
+		
+		if (minOffs > 0) {
+			minOffs += 200;
+		}
+		
+		if (topOffs < minOffs)
+			topOffs = minOffs;
+	}
+	
+	formWrap.css('top', topOffs + 'px');
+	
+	$(document).bind('scroll', function(e) {
+		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+		
+		if (scrollTop + windowHeight / 2 + formWrap.height() > leftSide.height()) {
+		   scrollTop = leftSide.height() - formWrap.height() - windowHeight / 2;
+		}
+		
+		formWrap.css('top', topOffs + scrollTop + 'px');
+	});
+});

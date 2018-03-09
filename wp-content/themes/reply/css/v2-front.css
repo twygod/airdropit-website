@@ -1,0 +1,529 @@
+@font-face {
+	font-family: "Futura PT";
+	src: url('../fonts/futura-pt-book.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+.clearfix-block {
+	padding: 0 !important;
+	position: relative;
+	z-index: 0;
+}
+
+::-webkit-input-placeholder {color:#818d9d;}
+::-moz-placeholder {color:#818d9d;}
+:-ms-input-placeholder {color:#818d9d;}
+
+::selection {
+	background-color: #F8B74B;
+	color: #fff;
+}
+
+input {
+	padding-left: 20px;
+}
+
+input:focus::-webkit-input-placeholder { transition: .3s all ease; opacity: 0;}
+a, button {
+	transition: .3s all ease;
+}
+
+input.btn-signup, button.btn-signup {
+	border-radius: 4px;
+}
+
+.h5, h5 {
+	font-size: 24px;
+	font-weight: 400;
+	font-family: "Futura PT";
+}
+.h6, h6 {
+	font-size: 15px;
+	text-transform: uppercase;
+}
+.reply-logo {
+	height: 28px;
+}
+.navbar-brand {
+	height: 40px;
+}
+ul.nav.navbar-nav.navbar-right > li > a {
+	padding: 9px 20px;
+}
+.v2-head {
+	padding-bottom: 50px;
+}
+.v2-head, .navbar-default, li.header-submenu > ul {
+	background: #5C54FF;
+}
+.navbar-nav>li.header-login-button>a,
+#menu-subscribe-btn button {
+	border-radius: 4px;
+	background: #4039D6 !important;
+}
+.navbar-nav>li.header-login-button>a:hover,
+#menu-subscribe-btn button:hover {
+	background: #2c26ae !important;
+	color: #fff !important;
+}
+.v2-head h1 {
+	margin-bottom: 26px;
+}
+.v2-head h2 {
+	max-width: 690px;
+	color: #b9b7ff;
+}
+a.button-like.btn-demo {
+	width: auto;
+	display: inline-block;
+	padding: 15px 0;
+	text-decoration: underline;
+	border: none;
+	background: none;
+}
+a.button-like.btn-demo:hover {
+	background: none;
+}
+.landing-primary-form #signup-bottom-email {
+	border: none !important;
+}
+input.btn-signup, button.btn-signup {
+	background: #47d6b6;
+}
+
+.block-rating {
+	margin: 25px 0 10px;
+}
+.block-rating a {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+}
+.block-rating .block-rating_review {
+	flex: 1 1 100%;
+	margin-bottom: 15px;
+}
+.block-rating_review img {
+	margin: 0 auto;
+}
+.block-rating span {
+	display: inline-block;
+	margin: 2px 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+}
+.block-rating a span:nth-child(2) {
+	display: inline-block;
+	margin-right: 23px;
+}
+
+.v2-head .scrn {
+	padding-top: 0;
+}
+.scrn .scrn-frame {
+	border: none;
+}
+.scrn .scrn-frame::before,
+.scrn .scrn-frame::after {
+	display: none;
+}
+.v2-latest-inner {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.v2-latest-inner span {
+	align-self: center;
+	flex: 1 1 100%;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.v2-latest span.big {
+	font-size: 15px;
+}
+.featured-landing {
+	padding: 2em 0;
+}
+.companies-heading {
+	margin-top: 56px;
+	color: #383c40;
+}
+.companies-img {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 80px;
+	text-align: center;
+}
+.companies-img div {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	margin: 2px 0px;
+	flex: 1 1 50%;
+	height: 76px;
+	transition: .3s all ease;
+}
+.companies-img div a {
+	opacity: .7;
+}
+.companies-img div a:hover {
+	opacity: 1;
+}
+.companies-img:not(.brands-footer) div img {
+	-webkit-filter: brightness(0.9);
+	filter: brightness(0.9);
+}
+.v2-usage .ori-outer.row {
+	border: none;
+}
+.v2-usage h3 {
+	padding-bottom: 130px;
+}
+.v2-usage {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.v2-usage .ori-outer:last-child div[class^="col-"] {
+	padding-bottom: 75px;
+}
+.v2-usage .ori-outer.row > div {
+	padding-top: 88px;
+	padding-bottom: 105px;
+	position: relative;
+	z-index: 5;
+}
+.v2-usage h5 {
+	margin-bottom: 20px;
+}
+.v2-usage p {
+	font-size: 18px;
+}
+.v2-features h6 {
+	padding-bottom: 12px;
+	text-transform: none;
+	font-family: "Futura PT";
+}
+.v2-features h6 a {
+	font-size: 18px;
+}
+.v2-features p {
+	line-height: 1.6;
+}
+.v2-features .desc {
+	padding-top: 15px;
+	line-height: 1.8;
+}
+.v2-features {
+	padding-top: 80px;
+}
+.v2-features [class^="icon-"]:before,
+.v2-features [class*=" icon-"]:before {
+	font-family: inherit !important;
+}
+.v2-emailserv h3 {
+	margin-bottom: 17px;
+}
+.v2-emailserv p {
+	font-size: 18px;
+	margin-bottom: 50px;
+}
+.v2-emailserv .providers {
+	padding-top: 35px;
+}
+.v2-customers .story {
+	padding-top: 49px;
+	padding-bottom: 28px;
+	border-radius: 9px;
+}
+.v2-customers .people img {
+	transform: scale(0.75);
+}
+.v2-customers .people > span > span {
+	bottom: -70px;
+}
+.v2-customers .people > span.active:after {
+	top: -67px;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0;
+}
+.v2-customers {
+	padding-bottom: 0px;
+}
+.v2-customers .story a + span {
+	font-size: 28px;
+	position: relative;
+	top: 3px;
+	left: 4px;
+	color: rgba(0,0,0,0.5)
+}
+.v2-customers .story a:hover + span {
+	left: 35px;
+	transition: .3s all ease;
+	opacity: 0;
+}
+.companies-img.brands-footer img {
+	height: 36px;
+}
+.v2-signup::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+.landing-secondary-form {
+	padding-top: 57px;
+	padding-bottom: 64px;
+}
+.v2-signup h3 {
+	padding-bottom: 31px;
+}
+.v2-signup p {
+	padding-bottom: 49px;
+	line-height: 1.7;
+}
+.landing-secondary-form form {
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+	width: 91%;
+	margin: 0 auto;
+}
+.landing-secondary-form input {
+	flex: 1 1 100%;
+	border: 2px solid #dfe7ee !important;
+	border-radius: 4px;
+	margin-bottom: 15px;
+}
+.v2-signup .maxstretch {
+	display: none;
+}
+.landing-primary-form .form-inner {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.landing-primary-form .form-inner #signup-bottom-email {
+	width: 303px;
+	border-radius: 4px;
+}
+.landing-primary-form .form-inner .btn-signup {
+	width: 303px;
+	border-radius: 4px;
+}
+.landing-primary-form .form-inner div {
+	flex: 1 1 100%;
+	text-align: center;
+}
+.landing-secondary-form input {
+	transition: .3s all ease;
+}
+#signup-bottom-form2 input:focus {
+	border-color: rgba(38, 38, 56, 0.27) !important;
+}
+@media (min-width: 540px) {
+	.landing-primary-form .form-inner #signup-bottom-email {
+		width: 290px;
+		border-radius: 4px 0 0 4px;
+	}
+	.landing-primary-form .form-inner .btn-signup {
+		width: 170px;
+		border-radius: 0 4px 4px 0;
+	}
+	.landing-secondary-form #signup-bottom-name,
+	.landing-secondary-form #signup-bottom-email2 {
+		flex: 1 1 49%;
+	}
+	.landing-secondary-form #signup-bottom-name {
+		margin-right: 2%;
+	}
+	.block-rating .block-rating_review {
+		flex: 0 1 auto;
+		margin: 0;
+	}
+}
+@media (min-width: 768px) {
+	.navbar-right {
+		margin-right: 0;
+	}
+	.companies-img div {
+		flex-basis: 33%;
+	}
+	.v2-latest-inner span {
+		flex-basis: auto;
+		margin-bottom: 0;
+	}
+	.v2-customers .people > span {
+		margin: 0 0px;
+	}
+	.landing-primary-form .form-inner #signup-bottom-email {
+		width: 360px;
+	}
+	.landing-primary-form .form-inner .btn-signup {
+		width: 153px;
+	}
+	.landing-primary-form .form-inner div {
+		flex: 0 1 auto;
+		text-align: left;
+	}
+	.landing-primary-form .form-inner .btn-demo {
+		margin-left: 32px;
+	}
+	.landing-secondary-form #signup-bottom-name,
+	.landing-secondary-form #signup-bottom-email2 {
+		flex: 1 1 33%;
+	}
+	.landing-secondary-form #signup-bottom-email2 {
+		margin-right: 2%;
+	}
+	.landing-secondary-form .btn-signup {
+		max-width: 153px;
+	}
+}
+@media (min-width: 992px) {
+	.navbar-default.fixed-header {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 999;
+		padding: 10px 0 0 0;
+		transition: all 0.2s;
+		box-shadow: 0px 0px 7px rgba(0,0,0,0.2);
+	}
+	li.header-submenu:hover>ul {
+		background: #fff;
+	}
+	li.header-submenu > ul > li > a {
+		color: #262638 !important;
+	}
+	li.header-submenu > ul > li > a:hover {
+		background-color: #e0e3ef !important;
+		color: #262638!important;
+	}
+
+	/*menu fix*/
+	li.header-submenu > ul {
+		max-height: 0;
+		position: absolute;
+		top: 0;
+		left: 5px;
+		z-index: 50;
+		margin: 0;
+		box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+		transition: all 0.35s;
+		opacity: 0;
+		transform: scaleY(0);
+		transform-origin: left top;
+	}
+	li.header-submenu:hover > ul {
+		max-height: none;
+		opacity: 1.0;
+		transform: scaleY(1);
+		transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+	}
+	li.header-submenu > ul > li > a:hover {
+		background: rgba(255,255,255,0.15);
+	}
+	.navbar-default {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 25px;
+		padding-bottom: 20px;
+	}
+	.navbar-default.fixed-header {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 999;
+		padding: 10px 0 0 0;
+		transition: all 0.2s;
+		box-shadow: 0px 0px 7px rgba(0,0,0,0.2);
+	}
+	ul.nav.navbar-nav.navbar-right > li#menu-item-22 {
+		border: none;
+	}
+	ul.nav.navbar-nav.navbar-right > li#menu-item-22 a {
+		border: none;
+		border-radius: 4px;
+		background: rgba(0, 0, 0, 0.3);
+	}
+	ul.nav.navbar-nav.navbar-right > li#menu-item-22 a:hover {
+		background: rgba(0, 0, 0, 0.4);
+	}
+	ul.nav.navbar-nav.navbar-right > li > a {
+		padding: 9px 17px;
+		margin: 0;
+		font-size: 16px;
+		font-weight: 400;
+		text-align: left;
+		border: none;
+		color: #fefefe;
+	}
+
+
+	.navbar-default {
+		padding-top: 14px;
+		padding-bottom: 14px;
+	}
+	.navbar-default.fixed-header {
+		padding: 14px 0 14px 0;
+	}
+	.block-rating {
+		margin-top: 55px;
+	}
+	.v2-head .scrn {
+		padding-top: 15px;
+	}
+	.featured-landing a {
+		flex-basis: 33%;
+		margin: 15px 0px;
+	}
+	.companies-img div {
+		flex-basis: 20%;
+	}
+	.v2-customers .people > span.active:after {
+		top: -75px;
+	}
+	.v2-usage .ori-outer.row,
+	.landing-secondary-form {
+		border: 2px solid #dde3ee;
+		border-radius: 3px;
+	}
+	.v2-usage {
+		padding-bottom: 130px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	ul.nav.navbar-nav.navbar-right>li>a {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.v2-usage .ori-outer.row>div {
+		height: 380px;
+	}
+}
+@media (min-width: 1200px) {
+	.v2-signup div[class^="col-"]:first-child {
+		text-align: right;
+	}
+	.scrn .col-md-offset-1 {
+		margin-left: 12.5%;
+	}
+	.landing-secondary-form .btn-signup {
+		max-width: 153px;
+		border-radius: 4px;
+	}
+	.landing-secondary-form #signup-bottom-name,
+	.landing-secondary-form #signup-bottom-email2,
+	.landing-secondary-form #signup-bottom-password {
+		flex: 1 1 19%;
+		margin-right: 2%;
+	}
+}
+@media (min-width: 1280px) {
+	.container {
+		width: 1240px;
+	}
+}

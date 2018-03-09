@@ -1,0 +1,86 @@
+$(function () {
+	console.log('2017.10.24 09:45');
+	
+	$.ajax({
+		url: '/_.txt', 
+		success: function (data) {
+			window.__freeEmailProviders = data.split('\n');
+		}
+	});
+	
+	/**
+	 * Catch form submissions and send tracking requests (if provided)
+	 */
+	//$(document).on('click', oldsig.formName + ' ' + oldsig.submitName, function (e) {
+	$('form').on('submit', function (event) {
+		console.log('Form submit');
+		
+		var form = $(this);
+		
+		var isContactForm = form.hasClass('wpcf7-form');
+		
+		if (!isContactForm) {
+			var email = form.find('input[type="email"]').eq(0);
+			
+			if (email) {
+				var trackEvent = form.data('track-event');
+				var activeCampaignList = form.data('active-campaign-list');
+				
+				var emailValue = email.val();
+				
+				if (emailValue && (trackEvent || activeCampaignList)) {
+					event.preventDefault();
+					
+					console.log('Email is ' + emailValue);
+					
+					var eventsCount = 0;
+					
+					if (trackEvent) {
+						eventsCount++;
+						
+						console.log('Track event: ' + trackEvent);
+					
+						rpTrack({
+							email: emailValue
+						}, trackEvent);
+					}
+					
+					if (activeCampaignList) {
+						eventsCount++;
+						
+						console.log('Active Campaign list: ' + activeCampaignList);
+						
+						var force = form.data('active-campaign-force');
+						var skipFreeEmails = form.data('active-campaign-skip-free');
+						
+						var shouldSend = true;
+						
+						if (skipFreeEmails) {
+							eventsCount++;
+							
+							var domain = emailValue.split('@')[1];
+							
+							if (domain && isFreeProvider(domain)) {
+								shouldSend = false;
+								console.log('Skip free email provider: ' + domain);
+							}
+						}
+						
+						if (shouldSend) {
+							ActiveCampaign().send(emailValue, activeCampaignList, force ? true : false);
+						}
+					}
+					
+					setTimeout(function () {
+						form.off('submit').submit();
+						//form.trigger.submit();
+					}, 100 * eventsCount);
+				}
+			} else {
+				console.log('Email could not be found');
+			}
+		} else {
+			console.log('Skip contact form');
+		}
+	});
+});
